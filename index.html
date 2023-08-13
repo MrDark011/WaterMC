@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      background: url("https://wallpapercave.com/wp/wp9667306.jpg") no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(10px); /* Adjust the blur intensity */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Take full viewport height */
+    }
+
+    .logo {
+      width: 100px; /* Adjust the size as needed */
+      height: 100px; /* Adjust the size as needed */
+      animation: pulse 2s infinite;
+      margin-top: 20px; /* Adjust the value to shift down */
+      border: 2px solid red; /* Initial border color */
+      border-radius: 50%; /* Make the logo circular */
+      overflow: hidden; /* Hide the overflowing border */
+      transition: border-color 1s ease-in-out; /* Smooth color transition */
+    }
+
+    .logo img {
+      width: 100%; /* Make the image cover the circular area */
+      height: 100%;
+    }
+
+    .copy-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #007bff; /* Change to your preferred color */
+      color: white; /* Change text color to white */
+      padding: 10px 20px; /* Adjust padding as needed */
+      border: 2px solid #0056b3; /* Add border */
+      border-radius: 10px; /* Adjust border radius as needed */
+      cursor: pointer;
+      margin-left: 5cm; /* Shift left by 5cm */
+      margin-right: 25cm; /* Shift right by 25cm */
+      transition: background-color 0.3s; /* Add transition effect */
+    }
+
+    .copy-bar:hover {
+      background-color: skyblue; /* Change to sky blue on hover */
+    }
+
+    .discord-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: blue; /* Change to blue */
+      color: white; /* Change text color to white */
+      padding: 10px 20px; /* Adjust padding as needed */
+      border: 2px solid #1a6829; /* Add border */
+      border-radius: 10px; /* Adjust border radius as needed */
+      cursor: pointer;
+      margin-left: 25cm; /* Shift left by 25cm */
+      margin-right: 5cm; /* Shift right by 5cm */
+      transition: background-color 0.3s; /* Add transition effect */
+    }
+
+    .discord-bar:hover {
+      background-color: skyblue; /* Change to sky blue on hover */
+    }
+
+    .copy-text {
+      user-select: none;
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.2);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+    
+    .integration-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .integration-button {
+      background-color: #dc3545;
+      color: white;
+      padding: 15px 25px; /* Increased padding for larger size */
+      font-size: 18px; /* Increased font size for larger text */
+      border: 2px solid #b02a37;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .integration-button:hover {
+      background-color: #b02a37;
+    }
+  </style>
+  <title>Water MC</title>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="https://cdn.discordapp.com/attachments/1139205865803620413/1139572941953183835/WATER.jpg" alt="Water MC Logo">
+    </div>
+    <div class="copy-bar" onclick="copyToClipboard()">
+      <span class="copy-text">IP of WaterMC</span>
+    </div>
+    <div class="discord-bar" onclick="openDiscord()">
+      <span class="copy-text">WaterMC Discord</span>
+    </div>
+    <div class="integration-buttons">
+      <div class="integration-button" onclick="openRanks()">
+        <span class="copy-text">Ranks</span>
+      </div>
+      <div class="integration-button" onclick="openKeys()">
+        <span class="copy-text">Keys</span>
+      </div>
+      <div class="integration-button" onclick="openCoins()">
+        <span class="copy-text">Coins</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyToClipboard() {
+      const textToCopy = "IP address of WaterMC"; // Replace with the actual IP address
+      const textarea = document.createElement("textarea");
+      textarea.value = textToCopy;
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      document.body.removeChild(textarea);
+      alert("Copied: " + textToCopy);
+    }
+    
+    function openDiscord() {
+      window.open("https://discord.gg/your-discord-server-link", "_blank");
+    }
+    
+    function openRanks() {
+      // Add your integration logic for opening the Ranks page here
+    }
+    
+    function openKeys() {
+      // Add your integration logic for opening the Keys page here
+    }
+    
+    function openCoins() {
+      // Add your integration logic for opening the Coins page here
+    }
+
+    const logo = document.querySelector(".logo");
+
+    const colors = ["red", "blue", "green", "yellow", "magenta", "skyblue", "cyan", "orange"];
+    let colorIndex = 0;
+
+    function changeBorderColor() {
+      logo.style.borderColor = colors[colorIndex];
+      colorIndex = (colorIndex + 1) % colors.length;
+    }
+
+    setInterval(changeBorderColor, 1000); // Change color every 1 second
+  </script>
+</body>
+</html>
